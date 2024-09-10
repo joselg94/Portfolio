@@ -1,3 +1,4 @@
+/* Estilos básicos */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,15 +7,16 @@ body {
 }
 
 header {
-    background-color: #003366; 
+    background-color: #003366;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 nav {
-    background-color: #003366; 
+    background-color: #003366;
     padding: 10px;
     width: 200px;
-    height: 100vh; 
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -29,22 +31,22 @@ nav ul {
 
 nav ul li {
     padding: 10px 0;
-    border-bottom: 1px solid #004080; 
+    border-bottom: 1px solid #004080;
 }
 
 nav ul li a {
-    color: #d3d3d3; 
+    color: #d3d3d3;
     text-decoration: none;
     display: block;
-    padding-left: 20px; 
+    padding-left: 20px;
 }
 
 nav ul li a:hover {
-    background-color: #0059b3; 
+    background-color: #0059b3;
 }
 
 main {
-    margin-left: 220px; 
+    margin-left: 220px;
     padding: 20px;
 }
 
@@ -52,21 +54,114 @@ section {
     text-align: center;
     margin-bottom: 20px;
     padding: 20px;
-    border: 2px solid #003366; 
-    border-radius: 15px; 
-    background-color: white; 
+    border: 2px solid #003366;
+    border-radius: 15px;
+    background-color: white;
 }
 
+.container-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.text-content {
+    flex: 1;
+    max-width: 70%;
+    box-sizing: border-box;
+}
+
+.profile-image {
+    flex: 0 0 auto;
+    max-width: 30%;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20%;
+    border: 3px solid #003366;
+}
+
+#menu-toggle {
+    display: none; 
+}
+
+.hamburger-icon {
+    display: none; 
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+#menu-toggle:checked + .hamburger-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle:checked + .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#menu-toggle:checked ~ #menu-list {
+    display: block; 
+}
+
+#menu-list {
+    list-style: none;
+    padding: 0;
+    background-color: #003366;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%; 
+}
+p {
+    text-align: justify;
+}
+
+#menu-list li {
+    border-bottom: 1px solid #004080;
+}
+
+#menu-list li a {
+    display: block;
+    padding: 10px;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+#menu-list li a:hover {
+    background-color: #0059b3;
+}
 li {
     text-align: start;
 }
 
-h1, h2 {
-    color: #333;
-}
-
-p {
-    text-align: justify;
+label {
+    display: block;
+    margin-bottom: 5px; 
+    font-weight: bold;
 }
 
 form {
@@ -76,12 +171,6 @@ form {
 
 form div {
     margin-bottom: 15px; 
-}
-
-label {
-    display: block;
-    margin-bottom: 5px; 
-    font-weight: bold;
 }
 
 input,textarea {
@@ -106,34 +195,52 @@ button[type="submit"]:hover {
     background-color: #0059b3;
 }
 
-.container-image{
-    display: flex;
+@media (max-width: 400px) {
+
+    nav {
+
+        width: 100%;
+        height: 4%;
+
+    }
+
+    .hamburger-icon {
+        display: contents; 
+    }
+
+    #menu-list {
+        display: none;
+    }
+
+    #menu-toggle:checked + #menu-list {
+        display: block; 
+    }
+
+    main {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .container-image {
+        flex-direction: column;
+    }
+
+    .profile-image {
+        max-width: 100%;
+    }
+
+    .text-content {
+        max-width: 100%;
+    }
 }
 
-.container-image {
-    display: flex;
-    align-items: center; 
-    gap: 20px; 
-    flex-wrap: wrap; 
-    margin: 0 auto; 
-    max-width: 100%;
-}
+@media (max-width: 480px) {
+    section {
+        padding: 15px;
+    }
 
-.text-content {
-    flex: 1; 
-    max-width: 70%; 
-    box-sizing: border-box; 
-}
-
-.profile-image {
-    flex: 0 0 auto; 
-    max-width: 30%; 
-    text-align: center; 
-}
-
-.profile-image img {
-    width: 100%; 
-    height: auto; 
-    border-radius: 20%; 
-    border: 3px solid #003366; 
+    .profile-image img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
 }
